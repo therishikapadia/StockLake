@@ -1,28 +1,58 @@
-\section*{StockLake}
-Stock Market Data Engineering Pipeline using Bronze--Silver--Gold Architecture
+# StockLake
+Stock Market Data Engineering Pipeline (Bronze-Silver-Gold)
 
-\section*{Overview}
-StockLake is an end-to-end stock market data engineering project that implements the Medallion Architecture.
-Raw market data is ingested using Apache Kafka, processed through structured layers, and stored in PostgreSQL
-for analytics and querying.
+## Overview
+StockLake is an end-to-end stock market data engineering project built using the
+Medallion Architecture. The pipeline ingests raw market data using Apache Kafka,
+processes it through structured layers, and stores analytics-ready data in PostgreSQL.
 
-\section*{Architecture}
-\[
-\text{Data Source} \rightarrow \text{Kafka} \rightarrow \text{Bronze} \rightarrow \text{Silver} \rightarrow \text{Gold} \rightarrow \text{PostgreSQL}
-\]
+This project is designed to reflect real-world data engineering practices.
 
-\section*{Pipeline Layers}
-\textbf{Bronze Layer:} Raw stock market data ingested via Kafka without transformations.
+## Architecture
+Data Source -> Kafka -> Bronze -> Silver -> Gold -> PostgreSQL
 
-\textbf{Silver Layer:} Cleaned and validated data with duplicates removed, standardized timestamps, and proper data types.
+## Pipeline Details
 
-\textbf{Gold Layer:} Aggregated and analytics-ready datasets with indicators such as returns and moving averages.
+### Bronze Layer (Raw Data)
+- Raw stock market data ingested through Kafka
+- Data stored exactly as received
+- No cleaning or transformations applied
+- Used for traceability and replay
 
-\section*{Tech Stack}
-Python, Apache Kafka, PostgreSQL, Pandas, Git
+### Silver Layer (Clean Data)
+- Removed duplicate records
+- Standardized timestamps and data types
+- Handled missing values
+- Applied basic data validation checks
 
-\section*{Highlights}
-Industry-standard Medallion Architecture, event-driven ingestion using Kafka, and analytics-ready storage in PostgreSQL.
+### Gold Layer (Analytics Data)
+- Aggregated stock price data
+- Calculated indicators such as returns and moving averages
+- Prepared analytics-ready datasets
 
-\section*{Author}
+## Data Storage
+- Bronze, Silver, and Gold layers stored in a data lake-style folder structure
+- Final Gold layer data loaded into PostgreSQL
+- Enables fast querying for analytics and dashboards
+
+## Tech Stack
+- Python
+- Apache Kafka
+- PostgreSQL
+- Pandas
+- Git and GitHub
+
+## Key Highlights
+- Industry-standard Bronze-Silver-Gold architecture
+- Event-driven ingestion using Kafka
+- Clean separation of raw, processed, and analytics data
+- Analytics-ready storage in PostgreSQL
+
+## Future Enhancements
+- Real-time streaming analytics
+- Data quality monitoring
+- Dashboard integration
+- Feature generation for machine learning pipelines
+
+## Author
 Rishi Kapadia
