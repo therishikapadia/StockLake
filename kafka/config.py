@@ -1,0 +1,7 @@
+API_KEY = "CGB1BSGH0V52YUBF"
+
+KAFKA_BROKER = "localhost:9092"
+TOPIC_NAME = "stock_prices"
+
+STOCK_SYMBOL = "MSFT"
+
